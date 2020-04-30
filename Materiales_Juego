@@ -1,0 +1,77 @@
+package pilas;
+import java.util.Random;
+public class Materiales {
+    public static void main(String args[]) throws SubdesbordamientoPila, DesbordamientoPila{
+        Pilas Madera = new Pilas(30);
+        Pilas Resina = new Pilas(30);
+        Pilas Hilo = new Pilas(30);
+         int numero;
+         //int conM=0, conR=0, conH=0;
+         boolean Maderita = false;
+         boolean Bastoncito = false;
+         boolean Cuerdita = false;
+                
+        for (int i=0; i<=30; i++){
+            numero = (int)(Math.random()*3);
+           
+                if (numero == 0){
+                    Madera.apilar(numero);
+                    //System.out.println(0);
+                    //conM++;
+                } else if (numero == 1){
+                    Resina.apilar(numero);
+                    //System.out.println(1);
+                    //conR++;
+                } else if (numero == 2){
+                    Hilo.apilar(numero);
+                    //System.out.println(2);
+                    //conH++;
+                    }
+                
+        }
+        /*
+        System.out.println("");
+        System.out.println("Madera  "+conM);
+        System.out.println("Resina  "+conR);
+        System.out.println("Hilo  "+conH);
+        System.out.println("");
+        */
+         try{
+            if (Madera.cantidad() >= 4){
+                Madera.sacar();
+                Madera.sacar();
+                Madera.sacar();
+                Madera.sacar();
+                System.out.println("!!!MESA ADQUIRIDA!!!");
+                Maderita = true;
+
+              if (Maderita = true || Madera.cantidad() >= 2){
+                Madera.sacar();
+                Madera.sacar();
+                System.out.println("!!!BASTON ADQUIRIDO!!!");
+                Bastoncito = true;
+              }               
+                        
+              if (Maderita = true || Hilo.cantidad() >= 4 || Resina.cantidad() >= 1){
+                Hilo.sacar();
+                Hilo.sacar();
+                Hilo.sacar();
+                Hilo.sacar();
+                Resina.sacar();
+                System.out.println("!!!CUERDA ADQUIRIDA!!!");
+                Cuerdita = true;
+              }
+                        
+              if ((Maderita == true || Bastoncito == true)|| Cuerdita == true){
+                System.out.println("!!!CAÑA DE PESCAR ADQUIRIDA!!!");
+              }
+                        
+              if (Maderita == true || Madera.cantidad() >= 5){
+                System.out.println("!!!BARCO ADQUIRIDO!!!");
+              }
+          }
+        }catch(SubdesbordamientoPila err){
+                System.out.println(err.getMessage());
+            }
+    }
+}
